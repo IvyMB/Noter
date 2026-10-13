@@ -6,7 +6,7 @@ import type { Settings } from '../shared/types'
 
 const file = (): string => join(app.getPath('userData'), 'settings.json')
 
-/** Defaults to the Python app's `vault` folder (next to the project) when it exists. */
+/** Defaults to a `vault` folder next to the app folder when it exists, else Documents/noter-vault. */
 function defaultVault(): string {
   const sibling = resolve(app.getAppPath(), '..', 'vault')
   return existsSync(sibling) ? sibling : join(app.getPath('documents'), 'noter-vault')
